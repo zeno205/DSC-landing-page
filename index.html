@@ -4,68 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Club - Join Our Teams</title>
+    <title>Data Science at USF - Join Our Teams</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fas fa-star"></i>
-                <span>EliteClub</span>
-            </div>
-            <div class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#teams" class="nav-link">Teams</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Logo Header -->
+    <header style="text-align: center; padding: 20px 0;">
+        <img src="logo.png" alt="Data Science at USF Logo" style="height: 140px; width: auto;">
+    </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">
-                    <span class="text-gradient">Join the Elite</span>
-                    <br>Shape the Future
+                    <span>Welcome to the Data Science Club at USF</span>
+                    <br><span class="subtitle-text">Empowering Students in Data Science, Analytics, ML & AI</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Discover your passion, find your team, and embark on an extraordinary journey with like-minded
-                    innovators.
+                    We are a student organization dedicated to connecting, educating, and empowering USF students in data science, analytics, machine learning, and AI. Open to all majors and backgrounds—no dues or fees required!
                 </p>
                 <div class="hero-buttons">
                     <a class="btn btn-primary" id="join-team-button">
                         <i class="fas fa-rocket"></i>
-                        Join Our Team
+                        Apply to Join a Team
                     </a>
                 </div>
             </div>
             <div class="hero-stats">
                 <div class="stat-item">
-                    <div class="stat-number" data-target="500">0</div>
-                    <div class="stat-label">Active Members</div>
+                    <div class="stat-number" data-target="300" data-plus="true">0</div>
+                    <div class="stat-label">Members</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-target="12">0</div>
-                    <div class="stat-label">Specialized Teams</div>
+                    <div class="stat-number" data-target="5">0</div>
+                    <div class="stat-label">Leadership Teams</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-target="98">0</div>
-                    <div class="stat-label">Success Rate</div>
+                    <div class="stat-number" data-target="50" data-plus="true">0</div>
+                    <div class="stat-label">Events Hosted</div>
                 </div>
-            </div
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Club Purpose Section -->
+    <section class="purpose-section">
+        <div class="container">
+            <h2 class="section-title">Our Mission</h2>
+            <p class="section-subtitle">At DSC, we always strive to provide a welcoming forum for USF students to connect, learn, and collaborate on awesome data science projects</p>
         </div>
     </section>
 
@@ -94,143 +92,90 @@
     <section id="teams" class="teams-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Choose Your <span class="text-gradient">Adventure</span></h2>
-                <p class="section-subtitle">Select the team that aligns with your passion and skills</p>
+                <h2 class="section-title">Explore Our <span class="text-gradient">Leadership Teams</span></h2>
+                <p class="section-subtitle">Find your place in one of our Vice President-led teams. All members are welcome to join and contribute!</p>
             </div>
-
             <div class="teams-grid">
-                <!-- Development Team -->
-                <div class="team-card" data-team="development">
+                <!-- Operations & Communication Team -->
+                <div class="team-card glow-effect" data-team="operations">
                     <div class="card-image">
-                        <img src="https://picsum.photos/400/250?random=2" alt="Development Team">
+                        <img src="https://picsum.photos/400/250?random=31" alt="Operations & Communication Team">
                         <div class="card-overlay">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-comments"></i>
                         </div>
                     </div>
                     <div class="card-content">
-                        <h3>Development Team</h3>
-                        <p>Build cutting-edge applications and bring innovative ideas to life through code.</p>
-                        <div class="card-tags">
-                            <span class="tag">Frontend</span>
-                            <span class="tag">Backend</span>
-                            <span class="tag">Mobile</span>
-                        </div>
-                        <a href="https://forms.google.com/development" class="team-link">
+                        <h3>Operations & Communication</h3>
+                        <p>Oversee internal communications, logistics, and ensure smooth club operations. Manage announcements, meeting notes, and member engagement.</p>
+                        <a href="#" class="team-link">
                             <span>Apply Now</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
-
-                <!-- Design Team -->
-                <div class="team-card" data-team="design">
+                <!-- Finance & Funding Strategy Team -->
+                <div class="team-card glow-effect" data-team="finance">
                     <div class="card-image">
-                        <img src="https://picsum.photos/400/250?random=3" alt="Design Team">
+                        <img src="https://picsum.photos/400/250?random=32" alt="Finance & Funding Team">
                         <div class="card-overlay">
-                            <i class="fas fa-palette"></i>
+                            <i class="fas fa-dollar-sign"></i>
                         </div>
                     </div>
                     <div class="card-content">
-                        <h3>Design Team</h3>
-                        <p>Craft beautiful user experiences and create visual stories that captivate audiences.</p>
-                        <div class="card-tags">
-                            <span class="tag">UI/UX</span>
-                            <span class="tag">Branding</span>
-                            <span class="tag">Motion</span>
-                        </div>
-                        <a href="https://forms.google.com/design" class="team-link">
+                        <h3>Finance & Funding Strategy</h3>
+                        <p>Manage the club's budget, funding applications, and financial records. Support event planning and seek sponsorships and grants.</p>
+                        <a href="#" class="team-link">
                             <span>Apply Now</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
-
-                <!-- Marketing Team -->
-                <div class="team-card" data-team="marketing">
+                <!-- Events & Logistics Team -->
+                <div class="team-card glow-effect" data-team="events">
                     <div class="card-image">
-                        <img src="https://picsum.photos/400/250?random=4" alt="Marketing Team">
+                        <img src="https://picsum.photos/400/250?random=33" alt="Events & Logistics Team">
                         <div class="card-overlay">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-calendar-check"></i>
                         </div>
                     </div>
                     <div class="card-content">
-                        <h3>Marketing Team</h3>
-                        <p>Amplify our message and connect with communities through strategic campaigns.</p>
-                        <div class="card-tags">
-                            <span class="tag">Digital</span>
-                            <span class="tag">Content</span>
-                            <span class="tag">Social</span>
-                        </div>
-                        <a href="https://forms.google.com/marketing" class="team-link">
+                        <h3>Events & Logistics</h3>
+                        <p>Plan and execute club events, workshops, and socials. Coordinate logistics, supplies, and event-day operations.</p>
+                        <a href="#" class="team-link">
                             <span>Apply Now</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
-
-                <!-- Events Team -->
-                <div class="team-card" data-team="events">
+                <!-- Marketing & Digital Presence Team -->
+                <div class="team-card glow-effect" data-team="marketing">
                     <div class="card-image">
-                        <img src="https://picsum.photos/400/250?random=5" alt="Events Team">
+                        <img src="https://picsum.photos/400/250?random=34" alt="Marketing & Digital Presence Team">
                         <div class="card-overlay">
-                            <i class="fas fa-calendar-alt"></i>
+                            <i class="fas fa-bullhorn"></i>
                         </div>
                     </div>
                     <div class="card-content">
-                        <h3>Events Team</h3>
-                        <p>Create memorable experiences and bring our community together through events.</p>
-                        <div class="card-tags">
-                            <span class="tag">Planning</span>
-                            <span class="tag">Logistics</span>
-                            <span class="tag">Community</span>
-                        </div>
-                        <a href="https://forms.google.com/events" class="team-link">
+                        <h3>Marketing & Digital Presence</h3>
+                        <p>Promote the club on social media, design graphics, and manage our digital brand. Coordinate with other orgs for event cross-promotion.</p>
+                        <a href="#" class="team-link">
                             <span>Apply Now</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
-
-                <!-- Research Team -->
-                <div class="team-card" data-team="research">
+                <!-- Data Science Workshops & Resources Team -->
+                <div class="team-card glow-effect" data-team="workshops">
                     <div class="card-image">
-                        <img src="https://picsum.photos/400/250?random=6" alt="Research Team">
+                        <img src="https://picsum.photos/400/250?random=35" alt="Workshops & Resources Team">
                         <div class="card-overlay">
-                            <i class="fas fa-microscope"></i>
+                            <i class="fas fa-laptop-code"></i>
                         </div>
                     </div>
                     <div class="card-content">
-                        <h3>Research Team</h3>
-                        <p>Explore new frontiers and push the boundaries of knowledge and innovation.</p>
-                        <div class="card-tags">
-                            <span class="tag">Analysis</span>
-                            <span class="tag">Innovation</span>
-                            <span class="tag">Data</span>
-                        </div>
-                        <a href="https://forms.google.com/research" class="team-link">
-                            <span>Apply Now</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Operations Team -->
-                <div class="team-card" data-team="operations">
-                    <div class="card-image">
-                        <img src="https://picsum.photos/400/250?random=7" alt="Operations Team">
-                        <div class="card-overlay">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Operations Team</h3>
-                        <p>Keep everything running smoothly and optimize our processes for maximum efficiency.</p>
-                        <div class="card-tags">
-                            <span class="tag">Management</span>
-                            <span class="tag">Strategy</span>
-                            <span class="tag">Growth</span>
-                        </div>
-                        <a href="https://forms.google.com/operations" class="team-link">
+                        <h3>Data Science Workshops & Resources</h3>
+                        <p>Create and curate technical content, organize hands-on workshops, and support members’ learning in data science and related fields.</p>
+                        <a href="#" class="team-link">
                             <span>Apply Now</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -245,29 +190,25 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Why Join <span class="text-gradient">EliteClub</span>?</h2>
-                    <p>We're more than just a club – we're a community of passionate individuals working together to
-                        create something extraordinary. Join us and be part of a movement that's shaping the future.</p>
+                    <h2>Why Join <span class="text-gradient">Data Science Club at USF?</span></h2>
+                    <p>We welcome all USF students—no matter your major or experience level. Our club is committed to inclusivity, ethical standards, and providing opportunities for leadership, learning, and real-world impact. Elections for leadership positions are held every April, and all active student members are eligible to run and vote.</p>
                     <div class="features">
                         <div class="feature-item">
-                            <i class="fas fa-rocket"></i>
                             <div>
-                                <h4>Innovation First</h4>
-                                <p>Work on cutting-edge projects that push boundaries</p>
+                                <h4>Workshops & Learning</h4>
+                                <p>Participate in hands-on workshops, speaker events, and technical demos led by our VP teams.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <i class="fas fa-users"></i>
                             <div>
-                                <h4>Collaborative Environment</h4>
-                                <p>Learn from experts and grow with your peers</p>
+                                <h4>Peer Collaboration</h4>
+                                <p>Work together on projects, share knowledge, and grow your network in a supportive environment.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <i class="fas fa-trophy"></i>
                             <div>
-                                <h4>Real Impact</h4>
-                                <p>See your work make a difference in the real world</p>
+                                <h4>Real-World Impact</h4>
+                                <p>Apply your skills to real data challenges and make a difference at USF and beyond.</p>
                             </div>
                         </div>
                     </div>
@@ -281,39 +222,78 @@
 
     <!-- Footer -->
     <footer class="footer">
+        <div class="footer-background">
+            <div class="footer-pattern"></div>
+        </div>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-section footer-brand">
                     <div class="footer-logo">
-                        <i class="fas fa-star"></i>
-                        <span>EliteClub</span>
+                        <div class="brand-text">
+                            <h3>Data Science at USF</h3>
+                            <span class="tagline">Empowering Tomorrow's Data Leaders</span>
+                        </div>
                     </div>
-                    <p>Building the future, one team at a time.</p>
+                    <p class="brand-description">Join our vibrant community of passionate students. Together, we're building the future of data-driven innovation at USF.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/datascienceusf/" aria-label="Instagram" class="social-instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/data-science-at-usf/" aria-label="LinkedIn" class="social-linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://discord.gg/SCSX2YnRs6" aria-label="Discord" class="social-discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
                     </div>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4><i class="fas fa-sitemap"></i> Navigate</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#teams">Teams</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#teams"><i class="fas fa-users"></i> Our Teams</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li><a href="mailto:contact@datascienceusf.org"><i class="fas fa-envelope"></i> Contact</a></li>
                     </ul>
                 </div>
+                
+                <!-- <div class="footer-section">
+                    <h4><i class="fas fa-graduation-cap"></i> Resources</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-laptop-code"></i> Workshops</a></li>
+                        <li><a href="#"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                        <li><a href="#"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                        <li><a href="#"><i class="fas fa-book"></i> Learning Materials</a></li>
+                    </ul>
+                </div> -->
+                
                 <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-envelope"></i> info@eliteclub.com</p>
-                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Innovation St, Tech City</p>
+                    <h4><i class="fas fa-handshake"></i> Get Involved</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>University of South Florida</strong>
+                                <span>4202 E Fowler Ave, Tampa, FL 33620</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email Us</strong>
+                                <a href="mailto:contact@datascienceusf.org">contact@datascienceusf.org</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-discord"></i>
+                            <div>
+                                <strong>Join Discord</strong>
+                                <a href="https://discord.gg/SCSX2YnRs6">Community Chat</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 EliteClub. All rights reserved. Created by zeno205</p>
             </div>
         </div>
     </footer>
