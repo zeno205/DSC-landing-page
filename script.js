@@ -25,12 +25,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 600);
     }
 
-    // Add ripple effect to buttons (excluding join-team-button)
-    const buttons = document.querySelectorAll('.btn, .team-card, .stat-item');
-    buttons.forEach(button => {
-        if (button.id !== 'join-team-button') {
-            button.addEventListener('click', createRipple);
+    // Add ripple effect to buttons and stat items (excluding join-team-button)
+    const rippleElements = document.querySelectorAll('.btn, .stat-item');
+    rippleElements.forEach(element => {
+        if (element.id !== 'join-team-button') {
+            element.addEventListener('click', createRipple);
         }
+    });
+
+    // Get team cards for both ripple and pulse effects
+    const teamCards = document.querySelectorAll('.team-card');
+    
+    // Add ripple effect to team cards
+    teamCards.forEach(card => {
+        card.addEventListener('click', createRipple);
     });
 
     // Number counting animation for statistics
@@ -85,17 +93,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (joinTeamButton) {
         joinTeamButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const teamsSection = document.getElementById('teams');
-            if (teamsSection) {
-                teamsSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+            
+            // Add pulse effect
+            joinTeamButton.classList.add('pulse-click');
+            joinTeamButton.addEventListener('animationend', () => {
+                joinTeamButton.classList.remove('pulse-click');
+            }, { once: true });
+            
+            // Smooth scroll after a brief delay to let the animation start
+            setTimeout(() => {
+                const teamsSection = document.getElementById('teams');
+                if (teamsSection) {
+                    teamsSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
         });
     }
 
     // Add pulsing effect on click for team cards
-    const teamCards = document.querySelectorAll('.team-card');
     teamCards.forEach(card => {
         card.addEventListener('click', () => {
             card.classList.add('pulse-click');
