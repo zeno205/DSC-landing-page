@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# Build artifacts
+dist/
+build/
+tmp/
+
+# VS Code
+.vscode/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
