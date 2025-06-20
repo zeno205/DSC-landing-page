@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Club - Join Our Teams</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-star"></i>
+                <span>EliteClub</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#teams" class="nav-link">Teams</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <img src="https://picsum.photos/1920/1080?random=1" alt="Hero Background" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="text-gradient">Join the Elite</span>
+                    <br>Shape the Future
+                </h1>
+                <p class="hero-subtitle">
+                    Discover your passion, find your team, and embark on an extraordinary journey with like-minded innovators.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#teams" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Explore Teams
+                    </a>
+                    <a href="#about" class="btn btn-secondary">
+                        <i class="fas fa-play"></i>
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Active Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="12">0</div>
+                    <div class="stat-label">Specialized Teams</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teams Section -->
+    <section id="teams" class="teams-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your <span class="text-gradient">Adventure</span></h2>
+                <p class="section-subtitle">Select the team that aligns with your passion and skills</p>
+            </div>
+            
+            <div class="teams-grid">
+                <!-- Development Team -->
+                <div class="team-card" data-team="development">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/400/250?random=2" alt="Development Team">
+                        <div class="card-overlay">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Development Team</h3>
+                        <p>Build cutting-edge applications and bring innovative ideas to life through code.</p>
+                        <div class="card-tags">
+                            <span class="tag">Frontend</span>
+                            <span class="tag">Backend</span>
+                            <span class="tag">Mobile</span>
+                        </div>
+                        <a href="https://forms.google.com/development" class="team-link">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Design Team -->
+                <div class="team-card" data-team="design">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/400/250?random=3" alt="Design Team">
+                        <div class="card-overlay">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Design Team</h3>
+                        <p>Craft beautiful user experiences and create visual stories that captivate audiences.</p>
+                        <div class="card-tags">
+                            <span class="tag">UI/UX</span>
+                            <span class="tag">Branding</span>
+                            <span class="tag">Motion</span>
+                        </div>
+                        <a href="https://forms.google.com/design" class="team-link">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Marketing Team -->
+                <div class="team-card" data-team="marketing">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/400/250?random=4" alt="Marketing Team">
+                        <div class="card-overlay">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Marketing Team</h3>
+                        <p>Amplify our message and connect with communities through strategic campaigns.</p>
+                        <div class="card-tags">
+                            <span class="tag">Digital</span>
+                            <span class="tag">Content</span>
+                            <span class="tag">Social</span>
+                        </div>
+                        <a href="https://forms.google.com/marketing" class="team-link">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Events Team -->
+                <div class="team-card" data-team="events">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/400/250?random=5" alt="Events Team">
+                        <div class="card-overlay">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Events Team</h3>
+                        <p>Create memorable experiences and bring our community together through events.</p>
+                        <div class="card-tags">
+                            <span class="tag">Planning</span>
+                            <span class="tag">Logistics</span>
+                            <span class="tag">Community</span>
+                        </div>
+                        <a href="https://forms.google.com/events" class="team-link">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Research Team -->
+                <div class="team-card" data-team="research">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/400/250?random=6" alt="Research Team">
+                        <div class="card-overlay">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Research Team</h3>
+                        <p>Explore new frontiers and push the boundaries of knowledge and innovation.</p>
+                        <div class="card-tags">
+                            <span class="tag">Analysis</span>
+                            <span class="tag">Innovation</span>
+                            <span class="tag">Data</span>
+                        </div>
+                        <a href="https://forms.google.com/research" class="team-link">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Operations Team -->
+                <div class="team-card" data-team="operations">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/400/250?random=7" alt="Operations Team">
+                        <div class="card-overlay">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Operations Team</h3>
+                        <p>Keep everything running smoothly and optimize our processes for maximum efficiency.</p>
+                        <div class="card-tags">
+                            <span class="tag">Management</span>
+                            <span class="tag">Strategy</span>
+                            <span class="tag">Growth</span>
+                        </div>
+                        <a href="https://forms.google.com/operations" class="team-link">
+                            <span>Apply Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Why Join <span class="text-gradient">EliteClub</span>?</h2>
+                    <p>We're more than just a club – we're a community of passionate individuals working together to create something extraordinary. Join us and be part of a movement that's shaping the future.</p>
+                    <div class="features">
+                        <div class="feature-item">
+                            <i class="fas fa-rocket"></i>
+                            <div>
+                                <h4>Innovation First</h4>
+                                <p>Work on cutting-edge projects that push boundaries</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Collaborative Environment</h4>
+                                <p>Learn from experts and grow with your peers</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <h4>Real Impact</h4>
+                                <p>See your work make a difference in the real world</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://picsum.photos/600/400?random=8" alt="About Us">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-star"></i>
+                        <span>EliteClub</span>
+                    </div>
+                    <p>Building the future, one team at a time.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#teams">Teams</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> info@eliteclub.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Innovation St, Tech City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EliteClub. All rights reserved. Created by zeno205</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
