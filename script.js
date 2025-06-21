@@ -1,126 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Universal background container approach - works on all devices
-    function createBackgroundContainer(targetElement, imageUrl, isHero = false) {
-        // Remove any existing background containers
-        const existingContainer = targetElement.querySelector(isHero ? '.hero-bg-container' : '.parallax-bg-container');
-        if (existingContainer) {
-            existingContainer.remove();
-        }
-        
-        // Create container for background
-        const bgContainer = document.createElement('div');
-        bgContainer.className = isHero ? 'hero-bg-container' : 'parallax-bg-container';
-        
-        // Create image element
-        const bgImg = document.createElement('img');
-        bgImg.className = isHero ? 'hero-bg-img' : 'parallax-bg-img';
-        bgImg.src = imageUrl;
-        bgImg.alt = '';
-        bgImg.loading = isHero ? 'eager' : 'lazy';
-        
-        // Ensure image loads properly
-        bgImg.onload = () => {
-            console.log(`Background image loaded: ${isHero ? 'Hero' : 'Parallax'}`);
-        };
-        
-        bgImg.onerror = () => {
-            console.warn(`Failed to load background image: ${imageUrl}`);
-            // Fallback: set a solid color background
-            bgContainer.style.background = 'linear-gradient(135deg, #1B5E3F, #2E865F)';
-        };
-        
-        // Append image to container
-        bgContainer.appendChild(bgImg);
-        
-        // Insert container as first child of target element
-        targetElement.insertBefore(bgContainer, targetElement.firstChild);
-        
-        return { container: bgContainer, image: bgImg };
+    // Initialize Rellax.js for smooth parallax effects
+    if (typeof Rellax !== 'undefined') {
+        var rellax = new Rellax('[data-rellax-speed]', {
+            speed: -7,
+            center: false,
+            wrapper: null,
+            round: true,
+            vertical: true,
+            horizontal: false
+        });
+        console.log('Rellax.js initialized successfully');
+    } else {
+        console.warn('Rellax.js library not loaded');
     }
-    
-    // Setup hero background
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const heroBg = createBackgroundContainer(hero, 'https://picsum.photos/1920/1080?random=1', true);
-        
-        // Add parallax effect - lighter version for mobile
-        const isDesktop = window.innerWidth >= 1024 && window.matchMedia('(hover: hover)').matches;
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-        
-        // Enable parallax on both desktop and mobile, but with different intensities
-        let ticking = false;
-        
-        function updateParallax() {
-            const scrolled = window.pageYOffset;
-            // Different rates for different devices - much more subtle for iOS
-            let rate;
-            if (isDesktop) {
-                rate = scrolled * 0.0005; // Desktop gets more pronounced effect
-            } else if (isIOS) {
-                rate = scrolled * 0.0008; // Very subtle for iOS to prevent abrupt zoom
-            } else {
-                rate = scrolled * 0.0015; // Android mobile gets moderate effect
-            }
-            
-            // Only apply transform if element is visible
-            if (scrolled < window.innerHeight * 1.5) {
-                // Use transform3d for better performance and smoother animation
-                heroBg.container.style.transform = `translate3d(0, ${rate}px, 0)`;
-                heroBg.container.style.webkitTransform = `translate3d(0, ${rate}px, 0)`;
-            }
-            ticking = false;
-        }
-         function requestParallaxUpdate() {
-            if (!ticking) {
-                requestAnimationFrame(updateParallax);
-                ticking = true;
-            }
-        }
-
-        // iOS-specific optimizations for smoother scrolling
-        if (isIOS) {
-            // Throttle scroll events more aggressively on iOS
-            let iosScrollTimeout;
-            window.addEventListener('scroll', () => {
-                clearTimeout(iosScrollTimeout);
-                iosScrollTimeout = setTimeout(requestParallaxUpdate, 8); // 8ms throttle for iOS
-            }, { passive: true });
-        } else {
-            // Use regular RAF for other devices
-            window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
-        }
-        window.addEventListener('resize', () => {
-            // Reset transform on resize with iOS-specific handling
-            heroBg.container.style.transform = 'translate3d(0, 0, 0)';
-            heroBg.container.style.webkitTransform = 'translate3d(0, 0, 0)';
-            
-            // Force a repaint on iOS to prevent visual glitches
-            if (isIOS) {
-                heroBg.container.style.display = 'none';
-                heroBg.container.offsetHeight; // Trigger reflow
-                heroBg.container.style.display = '';
-            }
-        }, { passive: true });
-        
-        if (isDesktop) {
-            console.log('Desktop parallax enabled (rate: 0.05)');
-        } else if (isIOS) {
-            console.log('iOS parallax enabled (rate: 0.008 - very subtle)');
-        } else {
-            console.log('Mobile parallax enabled (rate: 0.015)');
-        }
-    }
-    
-    // Setup parallax sections if they exist
-    const parallaxSections = document.querySelectorAll('.parallax-section');
-    parallaxSections.forEach((section, index) => {
-        createBackgroundContainer(section, `https://picsum.photos/1920/1080?random=${index + 2}`, false);
-    });
-    
-    // Remove any old parallax elements that might exist
-    const oldParallaxBgs = document.querySelectorAll('.parallax-bg');
-    oldParallaxBgs.forEach(bg => bg.remove());
 
     // Ripple effect for buttons and interactive elements
     function createRipple(event) {
