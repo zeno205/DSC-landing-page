@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo.png';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Data Science at USF Workshop Hub',
+  description = 'Professional workshop materials hub for Data Science at USF.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="/" class="brand-link" aria-label="Data Science at USF home">
+          <Image src={logo} alt="Data Science at USF Logo" width={72} loading="eager" />
+          <div class="brand-copy">
+            <span class="brand-title">Data Science at USF</span>
+            <span class="brand-subtitle">Workshop Hub</span>
+          </div>
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="/">Home</a>
+          <a href="/workshops">Workshops</a>
+          <a href="/keystatic">Admin</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <p class="footer-heading">Data Science at USF</p>
+          <p class="footer-text">Workshop materials, notes, and reproducible learning assets for club members.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.instagram.com/datascienceusf/" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/data-science-at-usf/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://discord.gg/SCSX2YnRs6" target="_blank" rel="noreferrer">Discord</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

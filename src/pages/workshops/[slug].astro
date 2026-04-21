@@ -1,0 +1,117 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const workshops = await getCollection('workshops');
+  return workshops.map((workshop) => ({
+    params: { slug: workshop.id },
+    props: { workshop },
+  }));
+}
+
+const { workshop } = Astro.props;
+const { Content } = await render(workshop);
+
+const contributorEntries = await Promise.all(
+  workshop.data.contributors.map((contributorId: string) => getEntry('contributors', contributorId))
+);
+
+const prettyDate = workshop.data.date.toLocaleDateString('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+});
+---
+
+<MainLayout title={`${workshop.data.title} | Data Science at USF`} description={workshop.data.summary}>
+  <section class="section">
+    <div class="container">
+      <h1>{workshop.data.title}</h1>
+      <div class="workshop-meta">
+        <span>Workshop date: {prettyDate}</span>
+      </div>
+      <p class="section-intro">{workshop.data.summary}</p>
+    </div>
+  </section>
+
+  <section class="workshop-detail">
+    <div class="container detail-grid">
+      <article class="panel notes-content">
+        <h2>Workshop Notes</h2>
+        <Content />
+      </article>
+
+      <aside class="panel">
+        <h3>Workshop Materials</h3>
+        <ul class="link-list">
+          {
+            workshop.data.colabUrl && (
+              <li><a href={workshop.data.colabUrl} target="_blank" rel="noreferrer">Colab notebook</a></li>
+            )
+          }
+          {
+            workshop.data.slidesUrl && (
+              <li><a href={workshop.data.slidesUrl} target="_blank" rel="noreferrer">Presentation slides</a></li>
+            )
+          }
+        </ul>
+
+        <h3>Python Cells</h3>
+        {
+          workshop.data.pythonCells.length > 0 ? (
+            workshop.data.pythonCells.map((cell) => (
+              <section>
+                {cell.label && <h4>{cell.label}</h4>}
+                <pre><code>{cell.code}</code></pre>
+              </section>
+            ))
+          ) : (
+            <p>No Python snippets added yet.</p>
+          )
+        }
+
+        <h3>Additional Resources</h3>
+        {
+          workshop.data.resources.length > 0 ? (
+            <ul class="link-list">
+              {workshop.data.resources.map((resource) => (
+                <li>
+                  <a href={resource.url} target="_blank" rel="noreferrer">{resource.label}</a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No additional resources listed.</p>
+          )
+        }
+
+        <h3>Contributors</h3>
+        {
+          contributorEntries.some(Boolean) ? (
+            <ul class="contributor-list">
+              {contributorEntries.map((contributor) => (
+                contributor && (
+                  <li>
+                    <strong>{contributor.data.name}</strong>
+                    {contributor.data.role && <span> · {contributor.data.role}</span>}
+                    {contributor.data.personalUrl && (
+                      <>
+                        {' '}
+                        <a href={contributor.data.personalUrl} target="_blank" rel="noreferrer">Profile</a>
+                      </>
+                    )}
+                  </li>
+                )
+              ))}
+            </ul>
+          ) : (
+            <p>No contributor profiles linked.</p>
+          )
+        }
+      </aside>
+    </div>
+  </section>
+</MainLayout>

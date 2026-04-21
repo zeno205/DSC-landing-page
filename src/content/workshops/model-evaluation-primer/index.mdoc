@@ -1,0 +1,43 @@
+---
+title: Model Evaluation Primer
+date: 2026-03-05
+summary: Introduces train/test splits, baseline metrics, and confusion-matrix interpretation for binary classification.
+colabUrl: https://colab.research.google.com/github/data-science-usf/workshops/blob/main/model-evaluation-primer.ipynb
+slidesUrl: https://docs.google.com/presentation/d/9z8y7x6w5v4u3t2s1r0q/edit
+pythonCells:
+  - label: Train/test split
+    code: |
+      from sklearn.model_selection import train_test_split
+
+      X_train, X_test, y_train, y_test = train_test_split(
+          X, y, test_size=0.2, random_state=42, stratify=y
+      )
+  - label: Evaluation metrics
+    code: |
+      from sklearn.metrics import accuracy_score, precision_score, recall_score
+
+      y_pred = model.predict(X_test)
+      print("accuracy", accuracy_score(y_test, y_pred))
+      print("precision", precision_score(y_test, y_pred))
+      print("recall", recall_score(y_test, y_pred))
+resources:
+  - label: scikit-learn model evaluation guide
+    url: https://scikit-learn.org/stable/modules/model_evaluation.html
+  - label: Confusion matrix explainer
+    url: https://en.wikipedia.org/wiki/Confusion_matrix
+contributors:
+  - aditya-singh
+---
+## Session goals
+
+This workshop explained how to evaluate classification models beyond accuracy and document tradeoffs between false positives and false negatives.
+
+## Key takeaways
+
+- Always compare against a simple baseline.
+- Precision/recall tradeoffs must be matched to the use case.
+- Cross-validation gives more reliable estimates than a single split.
+
+## Follow-up
+
+Extend the notebook by plotting a precision-recall curve and discussing threshold selection.

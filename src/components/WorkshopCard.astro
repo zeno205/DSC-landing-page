@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  workshop: CollectionEntry<'workshops'>;
+}
+
+const { workshop } = Astro.props;
+const prettyDate = workshop.data.date.toLocaleDateString('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+});
+---
+
+<article class="workshop-card">
+  <div class="workshop-card-top">
+    <p class="workshop-date">{prettyDate}</p>
+    <h3 class="workshop-title"><a href={`/workshops/${workshop.id}`}>{workshop.data.title}</a></h3>
+  </div>
+  <p class="workshop-summary">{workshop.data.summary}</p>
+  <a class="workshop-link" href={`/workshops/${workshop.id}`}>Open</a>
+</article>

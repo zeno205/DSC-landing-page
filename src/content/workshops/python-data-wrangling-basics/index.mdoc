@@ -1,0 +1,44 @@
+---
+title: Python Data Wrangling Basics
+date: 2026-02-12
+summary: Learn foundational pandas transformations, filtering, and grouped summaries using a tabular dataset.
+colabUrl: https://colab.research.google.com/github/data-science-usf/workshops/blob/main/python-data-wrangling-basics.ipynb
+slidesUrl: https://docs.google.com/presentation/d/1a2b3c4d5e6f7g8h9i0j/edit
+pythonCells:
+  - label: Load and inspect data
+    code: |
+      import pandas as pd
+
+      df = pd.read_csv("students.csv")
+      print(df.head())
+      print(df.info())
+  - label: Grouped summary by major
+    code: |
+      summary = (
+          df.groupby("major", as_index=False)
+            .agg(avg_gpa=("gpa", "mean"), count=("student_id", "count"))
+            .sort_values("avg_gpa", ascending=False)
+      )
+      print(summary)
+resources:
+  - label: pandas documentation
+    url: https://pandas.pydata.org/docs/
+  - label: Python data structures tutorial
+    url: https://docs.python.org/3/tutorial/datastructures.html
+contributors:
+  - jennifer-lee
+  - aditya-singh
+---
+## Session goals
+
+In this workshop, members practiced loading tabular data, validating column types, and building grouped summaries suitable for reporting.
+
+## Key takeaways
+
+- Use `info()` early to check null counts and data types.
+- Build reusable cleaning functions instead of hard-coding one-off transforms.
+- Validate grouped results with row counts to avoid aggregation mistakes.
+
+## Follow-up
+
+Use the Colab notebook to complete the optional challenge section on custom feature engineering.

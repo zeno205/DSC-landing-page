@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../layouts/MainLayout.astro';
+import WorkshopCard from '../components/WorkshopCard.astro';
+
+export const prerender = true;
+
+const workshops = (await getCollection('workshops')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const latest = workshops.slice(0, 3);
+---
+
+<MainLayout
+  title="Data Science at USF Workshop Hub"
+  description="Browse workshop notes, Colab notebooks, slides, and additional resources from Data Science at USF."
+>
+  <section class="section intro-section">
+    <div class="container">
+      <h1>Data Science at USF Workshop Hub</h1>
+      <p class="section-intro">
+        This site is the official archive for club workshop material. Each workshop page keeps notes, notebook links,
+        slides, supporting resources, and contributor credits in one place.
+      </p>
+      <div class="button-row">
+        <a class="button-link" href="/workshops">View workshop archive</a>
+        <a class="button-link secondary" href="/keystatic">Edit in admin</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Latest workshops</h2>
+      <p class="section-intro">Sorted by workshop date, newest first.</p>
+      {
+        latest.length > 0 ? (
+          <div class="workshop-grid">
+            {latest.map((workshop) => <WorkshopCard workshop={workshop} />)}
+          </div>
+        ) : (
+          <p>No workshops are published yet.</p>
+        )
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container simple-panel">
+      <h2>Publishing workflow</h2>
+      <ol class="number-list">
+        <li>Open the admin panel at `/keystatic`.</li>
+        <li>Add or update contributors in the contributors collection.</li>
+        <li>Create a workshop entry and link contributor profiles.</li>
+        <li>Publish notes, code cells, slides, and resources in one update.</li>
+      </ol>
+    </div>
+  </section>
+</MainLayout>

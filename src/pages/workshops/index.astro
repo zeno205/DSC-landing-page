@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+import WorkshopCard from '../../components/WorkshopCard.astro';
+
+export const prerender = true;
+
+const workshops = (await getCollection('workshops')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<MainLayout
+  title="Workshop Archive | Data Science at USF"
+  description="Chronological archive of Data Science at USF workshops."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Workshop Archive</h1>
+      <p class="section-intro">Every entry includes notes, notebook references, resources, and contributors.</p>
+
+      {
+        workshops.length > 0 ? (
+          <div class="workshop-list">
+            {workshops.map((workshop) => <WorkshopCard workshop={workshop} />)}
+          </div>
+        ) : (
+          <p>No workshop entries are available yet.</p>
+        )
+      }
+    </div>
+  </section>
+</MainLayout>
