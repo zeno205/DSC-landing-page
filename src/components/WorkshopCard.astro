@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { ArrowRight } from 'lucide-react';
 
 interface Props {
   workshop: CollectionEntry<'workshops'>;
@@ -19,5 +20,7 @@ const prettyDate = workshop.data.date.toLocaleDateString('en-US', {
     <h3 class="workshop-title"><a href={`/workshops/${workshop.id}`}>{workshop.data.title}</a></h3>
   </div>
   <p class="workshop-summary">{workshop.data.summary}</p>
-  <a class="workshop-link" href={`/workshops/${workshop.id}`}>Open</a>
+  <a class="workshop-link" href={`/workshops/${workshop.id}`}>
+    Open <ArrowRight strokeWidth={2.5} size={18} />
+  </a>
 </article>

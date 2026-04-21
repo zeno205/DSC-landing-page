@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { ArrowRight } from 'lucide-react';
 import MainLayout from '../layouts/MainLayout.astro';
 import WorkshopCard from '../components/WorkshopCard.astro';
 
@@ -16,24 +17,54 @@ const latest = workshops.slice(0, 3);
   title="Data Science at USF Workshop Hub"
   description="Browse workshop notes, Colab notebooks, slides, and additional resources from Data Science at USF."
 >
-  <section class="section intro-section">
-    <div class="container">
-      <h1>Data Science at USF Workshop Hub</h1>
-      <p class="section-intro">
-        This site is the official archive for club workshop material. Each workshop page keeps notes, notebook links,
-        slides, supporting resources, and contributor credits in one place.
+  <section class="hero-section" aria-labelledby="home-hero-title">
+    <div class="hero-media" aria-hidden="true"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">USF Data Science Club</p>
+      <h1 id="home-hero-title">Learn data science where the workshops actually happen.</h1>
+      <p class="hero-subtitle">
+        Notes, notebooks, slides, and club-built resources from Data Science at USF, organized for students who want to
+        keep building after the session ends.
       </p>
       <div class="button-row">
-        <a class="button-link" href="/workshops">View workshop archive</a>
-        <a class="button-link secondary" href="/keystatic">Edit in admin</a>
+        <a class="button-link" href="/workshops">
+          Browse workshops <ArrowRight strokeWidth={2.5} size={18} />
+        </a>
+        <a class="button-link secondary" href="/keystatic">
+          Open admin <ArrowRight strokeWidth={2.5} size={18} />
+        </a>
+      </div>
+      <div class="hero-stat-row" aria-label="Workshop hub highlights">
+        <div>
+          <strong>{workshops.length}</strong>
+          <span>published workshops</span>
+        </div>
+        <div>
+          <strong>Python</strong>
+          <span>notebooks and cells</span>
+        </div>
+        <div>
+          <strong>USF</strong>
+          <span>student-led learning</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section latest-section">
     <div class="container">
-      <h2>Latest workshops</h2>
-      <p class="section-intro">Sorted by workshop date, newest first.</p>
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow">Newest material</p>
+          <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <h2 style="margin-bottom: 0;">Latest workshops</h2>
+            <a class="text-link" href="/workshops" style="margin-top: 0.35rem;">
+              View full archive
+              <ArrowRight strokeWidth={2.5} size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
       {
         latest.length > 0 ? (
           <div class="workshop-grid">
@@ -46,15 +77,48 @@ const latest = workshops.slice(0, 3);
     </div>
   </section>
 
-  <section class="section">
-    <div class="container simple-panel">
-      <h2>Publishing workflow</h2>
-      <ol class="number-list">
-        <li>Open the admin panel at `/keystatic`.</li>
-        <li>Add or update contributors in the contributors collection.</li>
-        <li>Create a workshop entry and link contributor profiles.</li>
-        <li>Publish notes, code cells, slides, and resources in one update.</li>
-      </ol>
+  <section class="section about-section">
+    <div class="container about-grid">
+      <div class="about-image-wrap">
+        <img src="/side_image.webp" alt="Students attending a Data Science at USF workshop" class="about-image" />
+        <div class="image-caption">
+          <strong>Hands-on sessions</strong>
+          <span>Live demos, questions, notebooks, and reusable study material.</span>
+        </div>
+      </div>
+
+      <div class="about-copy">
+        <p class="eyebrow">What this hub does</p>
+        <h2>Turns one-time club events into a reusable learning library.</h2>
+        <p class="section-intro">
+          Each workshop page keeps the practical pieces together: explainers, Colab links, Python snippets, slides,
+          extra reading, and contributor credits. The result feels less like a file dump and more like a working
+          classroom archive.
+        </p>
+
+        <div class="content-block-grid">
+          <article class="content-block">
+            <span class="block-kicker">01</span>
+            <h3>Workshop notes</h3>
+            <p>Readable summaries keep concepts searchable after the meeting.</p>
+          </article>
+          <article class="content-block">
+            <span class="block-kicker">02</span>
+            <h3>Runnable assets</h3>
+            <p>Notebook links and Python cells let members revisit the actual workflow.</p>
+          </article>
+          <article class="content-block">
+            <span class="block-kicker">03</span>
+            <h3>Contributor credit</h3>
+            <p>Student presenters and collaborators stay attached to the material they built.</p>
+          </article>
+          <article class="content-block accent-block">
+            <span class="block-kicker">Admin</span>
+            <h3>Publishing workflow</h3>
+            <p>Add contributors, create a workshop entry, attach resources, and publish from Keystatic.</p>
+          </article>
+        </div>
+      </div>
     </div>
   </section>
 </MainLayout>
